@@ -1,0 +1,330 @@
+mydata <- read.delim(pipe("pbpaste"))
+source("/Users/stephanie/Documents/R/scripts/linearreg.R")
+# linear regression w max likelihood#
+#
+mymodel <- '#
+  # regressions#
+    #FOOT + HAND + TONGUE ~ WAIS + SIM + VOC + COMP + DSP + Wrat.word + Word.Attack + BNT + DK.stroop.1 + DK.stroop.2 + DK.stroop.3 + DK.stroop.4#
+    FOOT ~ DK.stroop.1 + DK.stroop.2 + DK.stroop.3 + DK.stroop.4#
+'#
+#
+fit <- sem(mymodel, data=mydata)#
+summary(fit, standardized=TRUE)#
+#
+#parameterEstimates(fit)
+# linear regression w max likelihood#
+#
+mymodel <- '#
+  # regressions#
+    #FOOT + HAND + TONGUE ~ WAIS + SIM + VOC + COMP + DSP + Wrat.word + Word.Attack + BNT + DK.stroop.1 + DK.stroop.2 + DK.stroop.3 + DK.stroop.4#
+    FOOT ~ DK.stroop.1 + DK.stroop.2 + DK.stroop.3 + DK.stroop.4#
+'#
+#
+fit <- sem(mymodel, data=mydata)#
+summary(fit, standardized=TRUE)#
+#
+parameterEstimates(fit)
+install.packages("lavaan", dependencies = TRUE)library(lavaan)
+if (!pacote %in% installed.packages()) hi <-1
+if (!lavaan %in% installed.packages()) hi <-1
+clear
+clc
+# linear regression w max likelihood#
+#
+mymodel <- '#
+  # regressions#
+    #FOOT + HAND + TONGUE ~ WAIS + SIM + VOC + COMP + DSP + Wrat.word + Word.Attack + BNT + DK.stroop.1 + DK.stroop.2 + DK.stroop.3 + DK.stroop.4#
+    FOOT ~ DK.stroop.3#
+#
+'#
+#
+fit <- sem(mymodel, data=mydata)#
+summary(fit, standardized=TRUE)#
+#
+#parameterEstimates(fit)
+hi <- 3
+hi
+hi[1]
+ellipse <- edit(ellipse)
+body(ellipse)
+methods(ellipse)
+methods(class=ellipse.lm)
+methods(class="ellipse.lm")
+methods(class="ellipse.nls")
+methods(class="ellipse.glm")
+getAnywhere(ellipse.lm)
+getAnywhere(ellipse.glm)
+getAnywhere(ellipse.default)
+library(metafor)
+install.packages("metafor")
+library(metafor)
+dat <- get(data(dat.konstantopoulos2011))
+head(dat, 15)
+res <- rma(yi, vi, data=dat)#
+print(res, digits=3)
+more rma
+help rma
+whois rma
+help(rma)
+?rma
+help(rma)
+?rma
+res <- rma(yi, vi, mods = ~ I(year-mean(year)), data=dat)
+print(res, digits=3)
+res <- rma.mv(yi, vi, random = ~ 1 | study, data=dat)
+print(res, digits=3)
+res.ml <- rma.mv(yi, vi, random = ~ 1 | district/study, data=dat)#
+# year does not moderate#
+print(res, digits=3)
+res.ml <- rma.mv(yi, vi, random = ~ 1 | district/study, data=dat)#
+# year does not moderate#
+print(res.ml, digits=3)
+?rma
+?rma.mv
+res.ml <- rma.mv(yi, vi, random = ~ 1 | district, data=dat)
+print(res.ml, digits=3)
+res <- rma(yi, vi, data=dat)
+print(res.ml, digits=3)
+res <- rma.mv(yi, vi, random = ~ 1 | study, data=dat)
+print(res.ml, digits=3)
+res <- rma(yi, vi, data=dat)
+print(res, digits=3)
+res <- rma.mv(yi, vi, random = ~ 1 | study, data=dat)
+print(res, digits=3)
+res <- rma.mv(yi, vi, random = ~ 1, data=dat)
+print(res, digits=3)
+?rma.mv
+x<-3;
+x
+x<-[4,3];
+x<-(4,3);
+x<-(4,3)
+x<-(4 3)
+x<-[4 3]
+x<-c(4 3)
+x<-c(4,3)
+x
+x<-c(4;3)
+x<-c(4 3)
+testdata=zeros(1,5)
+testdata=rand(1,5)
+testdata=rnorm(1,5)
+testdata
+testdata=rnorm(5)
+testdata
+hist(testdata)
+corr(testdata)
+cor(testdata)
+cor(testdata,testdata)
+testdata=rnorm(5,5)
+testdata
+testdata=rnorm(5,5,0.5)
+testdata
+testdata=rnorm(10)
+test2=rnorm(10)
+corr(testdata,test2)
+cor(testdata,test2)
+as.matrix(rand(10),rand(10),rand(10),rand(10))
+as.matrix(rnorm(10),rnorm(10),rnorm(10),rnorm(10))
+rnorm(10)
+as.matrix(rnorm(10);rnorm(10);rnorm(10);rnorm(10))
+A=matrix(rnorm(10),rnorm(10),rnorm(10),rnorm(10))
+A
+A=matrix(rnorm(10),rnorm(10),rnorm(10),rnorm(10))
+A=matrix(rnorm(10)+rnorm(10)+rnorm(10)+rnorm(10))
+A
+A=matrix(rnorm(50),nrow=10,ncol=5)
+A
+library(igraph)
+get.adjacency(graph.edgelist(A),directed=FALSE)
+Adj=graph.adjacency(A,mode="directed", weighted=TRUE, diag=TRUE)
+rcorr(A)
+cor(A,A)
+adj_mat=cor(A,A)
+plot.igraph(g1)
+#simple adjacencymat#
+#
+A=matrix(rnorm(50),nrow=10,ncol=5)#
+# randnum: rnorm(nentries,mean,sd)#
+#
+adj_mat=cor(A,A)#
+#
+g1 <- graph.adjacency(adj_mat)#
+#
+plot.igraph(g1)
+g1
+adj_mat
+#simple adjacencymat#
+#
+A=matrix(rnorm(100),nrow=10,ncol=10)#
+# randnum: rnorm(nentries,mean,sd)#
+#
+adj_mat=cor(A,A)#
+#
+g1 <- graph.adjacency(adj_mat)#
+#
+plot.igraph(g1)
+adj_mat
+install.packages('qgraph')
+?qgraph
+??qgraph
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, groups = big5groups, #
+    legend = TRUE, borders = FALSE)#
+title("Big 5 correlations", line = 2.5)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, groups = big5groups, #
+    legend = TRUE, borders = FALSE)
+require('qgraph')
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, groups = big5groups, #
+    legend = TRUE, borders = FALSE)#
+title("Big 5 correlations", line = 2.5)
+packageDescription("qgraph")$Version
+inimum = 0.25, cut = 0.4, vsize = 1.5, #
+    legend = TRUE, borders = FALSE)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE, borders = FALSE)
+title("My graph", line = 2.5)
+)
+title("My graph", line = 2.5)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE, borders = FALSE)#
+title("My graph", line = 2.5)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE)#
+title("My graph", line = 2.5)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE, borders = FALSE)
+title("My graph", line = 2.5)
+Q <- qgraph(Q, layout = "spring")
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE, borders = FALSE)#
+Q <- qgraph(Q, layout = "spring")
+# Load big5 dataset:#
+data(big5)#
+data(big5groups)#
+#
+# Correlations:#
+Q <- qgraph(cor(big5), minimum = 0.25, cut = 0.4, vsize = 1.5, groups = big5groups, #
+    legend = TRUE, borders = FALSE)#
+title("Big 5 correlations", line = 2.5)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5)#
+Q <- qgraph(Q, layout = "spring")
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE, borders = FALSE)#
+Q <- qgraph(Q, layout = "spring")
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, legend = TRUE, borders = FALSE)
+Q <- qgraph(adj_mat, minimum = 0.25, cut = 0.4, vsize = 1.5, borders = FALSE)
+Q <- qgraph(Q, layout = "spring")
+qgraph(Q, posCol = "red", negCol = "blue")
+qgraph(Q, graph = "sig", layout = "circular")
+qgraph(adj_mat, graph = "sig", layout = "circular")
+ls
+pwd
+getwd
+getwd()
+file.edit('basic_network')
+file.edit('basic_networks.R')
+file.edit('basic_networks')
+file.edit('/Users/stephanie/Documents/R/scripts/basic_networks.R')
+setwd('/Users/stephanie/Documents/R/scripts/')
+source('/Users/stephanie/Documents/R/scripts/basic_networks.R')
+source('/Users/stephanie/Documents/R/scripts/basic_networks.R')
+source('/Users/stephanie/Documents/R/scripts/basic_networks.R')
+source('/Users/stephanie/Documents/R/scripts/basic_networks.R')
+setwd('/Users/stephanie/Documents/R/scripts/')
+setwd('/Users/stephanie/Documents/R/scripts/')
+file.edit('basic_networks.R')
+for (i in 1:10)
+{ t<-sprintf('D%d',i)}
+t
+{ t<-sprintf('%sD%d',t,i)}
+t
+for (i in 1:10)
+{ t<-sprintf('%sD%d',t,i)}
+t
+{ t<-sprintf('%sD%d, ',t,i)}
+unset t
+rm(t)
+for (i in 1:10)
+{ t<-sprintf('%sD%d, ',t,i)}
+t={}
+for (i in 1:10)
+{ t<-sprintf('%sD%d, ',t,i)}
+t
+t=""
+for (i in 1:10)
+{ t<-sprintf('%sD%d, ',t,i)}
+t
+t=""
+for (i in 1:10)
+{ t<-sprintf('%sD%d, ',t,i)}
+t=""
+for (i in 1:10)
+{ t<-sprintf('D%d, ',i)}
+t
+{ t<-sprintf('D%d, ',1)}
+T
+t
+{ t<-sprintf('D%d, ',2)}
+t
+{ t<-sprintf('D%d, ',10)}
+t
+t=""
+{ t<-sprintf('%sD%d, ',t,1)}
+t
+{ t<-sprintf('%sD%d, ',t,2)}
+t
+for (i in 1:10)
+{ t<-sprintf('%s this is new: %d, ',t,1); t}
+for (i in 1:10)
+{ t<-sprintf('%s this is new: %d, ',t,1)
+t}
+for (i in 1:10)
+{ t<-sprintf('%s this is new: %d, ',t,1)
+print(t)
+}
+rm(t)
+t=""
+for (i in 1:10)
+{ t<-sprintf('%s this is new: %d, ',t,1)
+print(t)
+}
+> rm(t)#
+> t=""#
+> for (i in 1:10)#
++ { t<-sprintf('%s this is new: %d, ',t,i)#
++ print(t)#
++ }
+t=""
+for (i in 1:10)
+{ t<-sprintf('%s this is new: %d, ',t,1)
+print(t)
+}
+t=""
+for (i in 1:10)
+{ t<-sprintf('%s this is new: %d, ',t,i)
+print(t)
+}
+t=""
+for (i in 1:10)
+t<-sprintf('%s orange kitty %d, ',t,i)
+t
+t=""
+for (i in 1:10)
+{t<-sprintf('orange kitty %d, ',i)
+print(t)}
+t
+t=""
+for (i in 1:20)
+for (j in 1:21)
+t<-sprintf('%s D%d, ',t,i)
+t
+t=""
+for (i in 1:20)
+for (j in 1:5)
+t<-sprintf('%s D%d%d, ',t,i,j)
+t
+rm(t)
+t=""
+for (i in 1:20)
+t<-sprintf('%sD%d, ',t,i)
+t
+for (i in 1:20)
+t<
+}
+for (i in 1:21)
+t<-sprintf('%sA%d, ',t,i)
+t

@@ -1,0 +1,315 @@
+expt3
+wideToLong(expt3)
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^.*",sep,sep=""), "", names(data)[ind])) # measure 'time' names
+times
+data <- expt3
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^.*",sep,sep=""), "", names(data)[ind])) # measure 'time' names
+times
+v.names
+idvar
+gsub( paste("^.*",sep,sep=""), "", names(data)[ind])
+?gsub
+v.names
+names(data)[ind]
+gsub( paste("^",v.names,sep,sep=""), "", names(data)[ind])
+?regex
+?strtrim
+paste(v.names,collapse="|")
+gsub("^[MRT|PC]_","",names(data)[ind])
+?regex
+gsub("^(MRT|PC)_","",names(data)[ind])
+gsub( paste("^(",paste(v.names,collapes="|"),")",sep,sep=""), "", names(data)[ind])
+gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])
+times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names
+times
+wideToLong <- function( data, sep="_", timevar="treatment") {#
+	ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names#
+	varying <- list()#
+	for( i in seq_along(v.names) ) varying[[i]] <- grep( paste("^",v.names[i],sep,sep=""), names(data)[ind], value=TRUE)#
+	x<-reshape( data, varying=varying, direction="long", times=times, v.names=v.names, timevar=timevar)#
+	rownames(x) <- NULL#
+	return(x)#
+}
+wideToLong( expt3)
+x <- wideToLong( expt3)
+expandFactors()
+expandFactors
+options( contrasts=c("contr.helmert","contr.poly"))
+load("clinicaltrial.Rdata")
+expandFactors(clin.trial)
+contrasts(clin.trial$drug)
+?model.matrix
+model.matrix(~drug,clin.trial)
+expt3
+dwr
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong( dwr )
+wideToLong( expt3 )
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names#
+	varying <- list()#
+	for( i in seq_along(v.names) ) varying[[i]] <- grep( paste("^",v.names[i],sep,sep=""), names(data)[ind], value=TRUE)#
+	within <- "within"#
+	x<-reshape( data, idvar=idvar, varying=varying, direction="long", times=times, v.names=v.names, timevar=within )#
+	rownames(x) <- NULL
+data
+x
+within
+varying
+v.names
+names(data)[ind]
+v.names
+times
+x$within
+str.split(x$within,"_")
+strsplit(x$within,"_")
+as.data.frame(strsplit(x$within,"_"))
+tFrame(as.data.frame(strsplit(x$within,"_")))
+tFrame
+t(as.data.frame(strsplit(x$within,"_")))
+tFrame(as.data.frame(strsplit(x$within,"_")))
+times
+grep(sep,times)
+grep("ff",times)
+length(grep("ff",times))
+x[,!within]
+x[,-within]
+x[,!(within)]
+x
+x[,-3]
+x[,-grep("within",names(x))]
+ls.str(x)
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names#
+	varying <- list()#
+	for( i in seq_along(v.names) ) varying[[i]] <- grep( paste("^",v.names[i],sep,sep=""), names(data)[ind], value=TRUE)#
+	x<-reshape( data, idvar=idvar, varying=varying, direction="long", times=times, v.names=v.names, timevar="within" )#
+	x$within <- factor(x$within)
+x
+ls.str(x)
+split.treatments <- tFrame(as.data.frame(strsplit(x$within,sep)))#
+		names(split.treatments) <- paste(within,1:length(split.treatments),sep=".")#
+		x <- x[,-grep("within",names(x))]
+x
+ls.str(expt3)
+x[,within]
+within<- "within"
+x
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names#
+	varying <- list()#
+	for( i in seq_along(v.names) ) varying[[i]] <- grep( paste("^",v.names[i],sep,sep=""), names(data)[ind], value=TRUE)#
+	within <- "within"#
+	x<-reshape( data, idvar=idvar, varying=varying, direction="long", times=times, v.names=v.names, timevar=within )
+x
+x[,within]
+?reshape
+?cbind
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong( expt2)
+wideToLong( expt3 )
+x<- wideToLong( expt3 )
+x
+within <- c("within.1","within.2")
+within
+tFrame(x[,within])
+as.list(tFrame(x[,within]))
+x[,within]
+paste(x[,within])
+?paste
+as.matrix(x[,within])
+apply(as.matrix(x[,within]),1,paste,sep="_")
+apply(as.matrix(x[,within]),1,paste,collapse="_")
+data
+x
+data <- x
+collapsed.treatments <- apply(as.matrix(data[,within]),1,paste,collapse="_")#
+		x <- x[,-grep(within,names(x))] # delete old treatments#
+		data$within <- x
+within
+setdiff(names(data),within)
+data
+data <- x
+x
+data
+expt3
+x <- wideToLong(x)
+x <- wideToLong(expt3)
+x
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+longToWide(x,within=c("within.1","within.2"),between=c("id","gender"),measure=c("MRT","PC"))
+y<-x
+data <- y
+collapsed.treatments <- apply(as.matrix(data[,within]),1,paste,collapse="_")#
+		x <- x[,setdiff(names(data),within)] # delete split treatments#
+		data$within <- x # append collapsed treatment
+data
+x
+split.treatments
+collapsed.treatments <- apply(as.matrix(data[,within]),1,paste,collapse="_")#
+		x <- x[,setdiff(names(data),within)] # delete split treatments#
+		data$within <- collapsed.treatments # append collapsed treatment
+collapsed.treatments
+within
+data
+data<-y
+within
+between
+collapsed.treatments <- apply(as.matrix(data[,within]),1,paste,collapse="_")
+collapsed.treatments
+collapsed.treatments <- apply(as.matrix(data[,within]),1,paste,collapse="_")#
+		data <- data[,setdiff(names(data),within)] # delete split treatments#
+		data$within <- collapsed.treatments # append collapsed treatment
+data
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+expt2
+wideToLong( expt3 )
+?reshape
+dwr
+expt3
+drugs <- dwr
+choice <- expt3
+save(drugs,choice,file="repeated.Rdata")
+drugs
+d2 <- wideToLong(drugs)
+d2
+drugs
+source("/var/folders/zt/stn3df0n7tndrdkyxzdwqp8m0000gn/T//RtmpzCLOoA/fileac04cc6c42a")#
+unlink("/var/folders/zt/stn3df0n7tndrdkyxzdwqp8m0000gn/T//RtmpzCLOoA/fileac04cc6c42a")
+d2 <- wideToLong(drugs)
+wideToLong(drugs)
+drugs
+data <- drugs
+print.default(data)
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names#
+	varying <- list()#
+	for( i in seq_along(v.names) ) varying[[i]] <- grep( paste("^",v.names[i],sep,sep=""), names(data)[ind], value=TRUE)#
+	within <- "within"#
+	x<-reshape( data, idvar=idvar, varying=varying, direction="long", times=times, v.names=v.names, timevar=within )
+x
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+data
+wideToLong(drugs)
+ls.str(drugs)
+d2 <- wideToLong(drugs)
+d2
+ls.str(d2)
+d3 <- longToWide(d2)
+reshape(d2)
+d2
+d3 <- longToWide(d2,within="within",measure=c("WMC","RT"),between=c("id","gender"))
+d3
+f <- WMC + RT ~ within
+f[1]
+all.vars(f[2])
+all.vars(f[-2])
+all.vars(f[-3])
+formula <- WMC + RT ~ drug
+d2
+names(d2)[3] <- "drug"
+d2
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+d2
+longToWide( d2, WMC+RT ~ drug )
+formula
+data <- d2
+within <- all.vars(formula[-2])#
+	v.names <- all.vars(formula[-3])#
+	idvar <- setdiff(names(data),c(within,v.names))
+within
+v.names
+idvar
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+longToWide( d2, WMC+RT ~ drug )
+longToWide( d2, WMC+RT ~ gender )
+d2
+longToWide( d2, WMC+RT ~ gender + drug )
+wideToLong( data, within="drug")
+data
+wideToLong( drugs, within="drug")
+choice
+wideToLong(choice,within=c("condition","day"))
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong(choice,within=c("condition","day"))
+wideToLong(choice,within=c("condition","day"))
+wideToLong(choice, c("condition","day") )
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong(choice, c("condition","day") )
+choice
+choice$id <- c("Alan","Barry","Christy","Denise")
+choice
+choice$id <- factor(choice$id)
+choice
+wideToLong(choice, c("condition","day") )
+wideToLong(chouce)
+wideToLong(choice)
+c2 <0 wideToLong(choice, c("condition","day") )
+c2 <- wideToLong(choice, c("condition","day") )
+longToWide(c2, MRT + PC ~ condition + day )
+longToWide(c2, MRT + PC ~ day + condition )
+drugs
+wideToLong( drugs )
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong( drugs )
+data = drugs
+ind <- grep(sep,names(data)) # indices of variables that are repeated#
+	idvar <- names(data)[-ind] # names of id varibles#
+	v.names <- unique(gsub( paste(sep,".*$",sep=""), "", names(data)[ind])) # measure var names#
+	times <- unique(gsub( paste("^(",paste(v.names,collapse="|"),")",sep,sep=""), "", names(data)[ind])) # measure 'time' names#
+	varying <- list()#
+	for( i in seq_along(v.names) ) varying[[i]] <- grep( paste("^",v.names[i],sep,sep=""), names(data)[ind], value=TRUE)#
+	within.tmp <- "dfgadfg"#
+	x<-reshape( data, idvar=idvar, varying=varying, direction="long", times=times, v.names=v.names, timevar=within.tmp )
+x
+split==TRUE & length( grep(sep,times))>0
+times
+sep
+split
+split <- TRUE
+split==TRUE & length( grep(sep,times))>0
+within
+x[,within]<- factor(x[,within])
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong( drugs )
+wideToLong( drugs, "drug" )
+wideToLong( drugs, "WMC" )
+?make.names
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong( drugs, "WMC" )
+wideToLong( drugs)
+longToWide( expt2 )
+longToWide( expt3 )
+longToWide( wideToLong(choice) )
+c2
+wideToLong
+choice
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+drugs
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong(drugs)
+drugs
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong(drugs)
+wideToLong(drugs)
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")
+wideToLong(drugs)
+source("/Users/dan/Work/research1/Rbook/pkg/development/reshape2.R")

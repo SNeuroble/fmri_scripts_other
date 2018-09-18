@@ -1,0 +1,394 @@
+class(pima_sub$test)
+class(pima_sub$age)
+class(pima_sub$diabetes)
+class(pima_sub$bmi)
+gpairs(pima_sub[,1:10])
+gpairs(pima_sub[,1])
+gpairs(pima_sub[,1:2])
+gpairs(pima_sub[,1:3])
+gpairs(pima_sub[,1:4])
+gpairs(pima_sub[,1:7])
+gpairs(pima_sub[,1:8])
+gpairs(pima_sub[,1:9])
+gpairs(pima[,1:9])
+gpairs(pima[,1:8])
+gpairs(pima[,1:9])
+pima$test=as.numeric(pima$test)
+gpairs(pima[,1:9])
+pima$test=factor(pima$test)
+gpairs(pima[,1:9])
+gpairs(pima[,-9:10])
+gpairs(pima[,-10:9])
+gpairs(pima[,-10,-9])
+fit.lm(diastolic ~ bmi + age + diabetes + glucose, pima)
+fit=lm(diastolic ~ bmi + age + diabetes + glucose, pima)
+fit
+rand
+rand(1)
+rnd(1)
+plot(1:10, (1:10)^2+rnorm(1, mean=0, sd=5))
+rnorm(1, mean=0, sd=5)
+plot(1:10, (1:10)^2+rnorm(10, mean=0, sd=5))
+lm(test ~ diabetes, pima)
+lm(factor(test) ~ diabetes, pima)
+pima[1:8,]
+pima=pima[,-10]
+pima[1:8,]
+X <- as.matrix(pima)
+X
+X[1:9,]
+install.packages("faraway")#
+library(faraway)
+pima$test <- factor(pima$test)
+lm(test ~ diabetes, pima)
+pima$test <- factor(pima$test)
+lm(test ~ diabetes, pima)
+library(faraway)
+lm(test ~ diabetes, pima)
+summary(pima)
+install.packages("faraway")
+library(faraway)
+lm(test ~ diabetes, pima)
+pima$test <- factor(pima$test)
+lm(test ~ diabetes, pima)
+install.packages("faraway")
+library(faraway)
+lm(test ~ diabetes, pima)
+install.packages("faraway")#
+library(faraway)
+summary(pima)
+data(pima)
+pima$test[pima$test==0] = "negative"#
+pima$test[pima$test==1] = "positive"#
+pima$glucose[pima$glucose == 0] = NA#
+pima$diastolic[pima$diastolic == 0] = NA#
+pima$triceps[pima$triceps == 0] = NA#
+pima$insulin[pima$insulin == 0] = NA#
+pima$bmi[pima$bmi == 0] = NA
+plot(pima$diabetes,pima$test)
+min(pima$test)
+plot(pima$diabetes, pima$test, xlim=c(min(pima$diabetes), max(pima$diabetes)), ylim=c(0, 3))
+pima_sub = na.omit(pima[,c("diabetes", "test")])#
+#
+plot(pima_sub$diabetes, pima_sub$test, xlim=c(min(pima_sub$diabetes), max(pima_sub$diabetes)), ylim=c(0, 3))
+summary(pima_sub)
+pima_sub[1:10,]
+pima[1:10,]
+plot(pima_sub$diabetes, pima_sub$test, xlim=c(min(pima_sub$diabetes), max(pima_sub$diabetes)), ylim=c(0, 3))
+pima_sub = na.omit(pima)
+pima_sub[1:10,]
+plot(pima_sub$diabetes, pima_sub$test, xlim=c(min(pima_sub$diabetes), max(pima_sub$diabetes)), ylim=c(0, 3))
+plot(pima_sub$diabetes, pima_sub$test)
+slm(pima_sub$diastolic, pima_sub$test)
+lm(pima_sub$diastolic, pima_sub$test)
+pima_sub$diastolic
+pima_sub$test
+pima_sub$test = factor(pima_sub$test)
+lm(pima_sub$diastolic, pima_sub$test)
+as.numeric(pima_sub$test[1:10])
+pima_sub$test[1:10]
+lm(pima_sub$diastolic, pima_sub$test)
+lm(test ~ diabetes, pima)
+lm(test ~ diabetes, pima_sub)
+lm(test ~ diabetes, pima)
+lm(test ~ diabetes, pima_sub)
+m<-lm(test ~ diabetes, pima_sub)
+summary(m)
+class(pima_sub$diabetes)
+class(pima_sub$test)
+plot(pima_sub$diabetes, pima_sub$test)
+m<-lm(test ~ diabetes, pima_sub)
+summary(m)
+lm(test ~ diabetes, pima_sub)
+x=pima_sub$diabetes#
+y=pima_sub$test#
+#
+ts = mean(x[y == 1]) - mean(x[y == 0])#
+perm_times = 1000#
+perm_slms = rep(NA, nrow=perm_times)#
+#
+for (i in 1:perm_times) {#
+  ids = sample(1:length(y), length(y))#
+  perm_slms[i] = mean(x[y[ids] == 1]) - #
+    mean(x[y[ids] == 0])#
+}
+d<-density(perm_slms)
+summary(x)
+x[1:10,]
+x[,1:10]
+dim(x)
+summary(x)
+x
+dim(x)
+ncol(x)
+nrow(x)
+x
+class(x)
+perm_slms
+x
+x<-pima_sub$diabetes#
+y<-pima_sub$test#
+#
+ts = mean(x[y == 1]) - mean(x[y == 0])#
+perm_times = 1000#
+perm_slms = rep(NA, nrow=perm_times)#
+#
+for (i in 1:perm_times) {#
+  ids = sample(1:length(y), length(y))#
+  perm_slms[i] = mean(x[y[ids] == 1]) - #
+    mean(x[y[ids] == 0])#
+}
+perm_slms
+ts
+class(x)
+dim(x)
+dim(y)
+x<-pima_sub$diabetes
+tmp = pima_sub$test
+dim(tmp)
+dim(1:10)
+mean(x[y[ids] == 1]) - #
+    mean(x[y[ids] == 0])
+x[y[ids]
+]
+x[y[ids] == 1]
+y[ids] == 1
+ids
+for (i in 1:perm_times) {#
+  ids = sample(y, length(y))#
+  perm_slms[i] = mean(x[y[ids] == 1]) - #
+    mean(x[y[ids] == 0])#
+}
+d<-density(perm_slms)
+x[y[ids] == 1]
+y[ids] == 1
+ids
+class(y)
+pima_sub$test = na.omit(pima$test)
+pima_sub = na.omit(pima)
+x<-pima_sub$diabetes#
+y<-pima_sub$test#
+#
+ts = mean(x[y == 1]) - mean(x[y == 0])#
+perm_times = 1000#
+perm_slms = rep(NA, nrow=perm_times)#
+for (i in 1:perm_times) {#
+  ids = sample(y, length(y))#
+  perm_slms[i] = mean(x[y[ids] == 1]) - #
+    mean(x[y[ids] == 0])#
+}
+d<-density(perm_slms)
+ids
+library(faraway)
+class(pima$test)
+pima$test[1:10,]
+pima$test[,1:10]
+pima$test
+install.packages("faraway")
+head(pima)
+install.packages(c('repr', 'IRdisplay', 'pbdZMQ', 'devtools'))
+devtools::install_github('IRkernel/IRkernel')
+IRkernel::installspec()
+system2('jupyter', c('kernelspec', '--version'), FALSE, FALSE)
+t<-system2('jupyter', c('kernelspec', '--version'), FALSE, FALSE)
+t
+IRkernel::installspec()
+t<-system2('jupyter', c('kernelspec', '--version'))
+t<-system('jupyter', c('kernelspec', '--version'))
+t<-system('jupyter', c('kernelspec', '--version'),FALSE,FALSE)
+t<-system2('jupyter', c('kernelspec', '--version'))
+t<-system2('jupyter', c('kernelspec', '--version'),FALSE,FALSE)
+t
+t<-system2('jupyter', c('kernelspec', '--version'))
+t<-system2('jupyter 'kernelspec --version'))
+t<-system2('jupyter 'kernelspec --version')
+t<-system2('jupyter kernelspec --version')
+t<-system('jupyter kernelspec --version')
+Sys.getenv(‘R_HOME’)
+Sys.getenv('R_HOME')
+cd /Library/Frameworks/R.framework/Resources
+install.packages("R.matlab")
+install.package("tcor")
+install.packages("tcor")
+library(devtools)
+devtools::install_github("bwlewis/tcor")
+ls
+dir()
+m = readMat("Documents/data/test_retest/TRT001_1_S001_2_3_for_testing.mat")
+library(R.matlab)
+m = readMat("Documents/data/test_retest/TRT001_1_S001_2_3_for_testing.mat")
+methods("sort")
+get.anywhere("sort.default")
+getAnywhere("sort.default")
+file.edit("sort.default")
+edit("sort")
+edit(sort)
+edit(ggplot2)
+edit(ggplot2::scale_color_gradient)
+choose(13,2)
+choose(13,2)*choose(4,2)^2*44/choose(52,5)
+choose(78,1)*choose(76,1)/choose(52,5)
+choose(78,1)*choose(76,1)*44/choose(52,5)
+choose(13,2)*choose(4,2)^2
+choose(78,1)*choose(76,1)
+choose(13,2)*choose(4,2)*44/choose(52,5)
+install.packages("metafor")
+ICC=c(.18,.7,.22,.47,.15,.27,.25,.5,.43,.35,.2,.6,.3,.4,.29,.32,.65,.35,.25,.54,.22)
+ICC_var=c(.1,.1,.16,.1,.12,.1,.1,.1,.1,.1,.1,.1,.15,.1,.18,.14,.05,.18,.1,.1,.16)
+len(ICC_var)
+length(ICC_var)
+length(ICC)
+forest(ICC)
+library(metafor)
+forest(ICC)
+mydat=c(ICC,ICC_var)
+length(mydat)
+mydat=c(ICC;ICC_var)
+mydat=data.frame(ICC,ICC_var)
+length(mydat)
+res<-rma(ICC,ICC_var,data=mydat,method='FE')
+res<-rma(ICC,ICC_var,data=mydat,method='RE')
+res<-rma(ICC,ICC_var,data=mydat,method='DL')
+forest(res)
+mydat.ICC_var=ICC_var^2;
+res<-rma(ICC,ICC_var,data=mydat,method='DL')
+forest(res)
+mydat.ICC_var
+res<-rma(ICC,ICC_var,data=mydat,method='DL')
+pwd
+install.packages(“reticulate”) # for python#
+library(reticulate)
+install.packages("reticulate")
+setwd('/Users/stephanie/Documents/scripts/python/')
+library(reticulate)
+clf_comparison<-import("clf_comparison")
+clf_comparison<-source_python('clf_comparison.py')
+afni<-import('afni')
+pwd
+ls
+list.files()
+afni<-import("afni")
+afni<-source_python("afni.py")
+clf_comparison<-source_python('clf_comparison.py')
+afni<-source_python("afni.py")
+clf_comparison<-source_python('clf_comparison.py')
+clf_comparison<-source_python('clf_comparison.py')
+clf_comparison<-source_python('clf_comparison.py')
+clf_comparison<-source_python('clf_comparison.py')
+clf_comparison<-source_python('clf_comparison.py')
+clf_comparison<-source_python('clf_comparison.py')
+clf_comparison<-source_python('clf_comparison.py')
+library(lavaan)
+covmat= '#
+54.85202987#
+0.65747427 0.39252442#
+7.60342806 3.81961925e-03 5.72970207#
+'
+dat.cov <- getCov(covmat, names=c("X","M", "Y"))
+dat.cov
+##Mediation#
+model <- ' # direct effect#
+             Y ~ c*X#
+           # mediator#
+             M ~ a*X#
+             Y ~ b*M#
+           # indirect effect (a*b)#
+             ab := a*b#
+           # total effect#
+             total := c + (a*b)#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)
+##Mediation#
+model <- ' # direct effect#
+             Y ~ c*X#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)
+##Mediation#
+model <- ' # direct effect#
+             Y ~ c*X#
+           # mediator#
+             M ~ a*X#
+             Y ~ b*M#
+           # indirect effect (a*b)#
+             ab := a*b#
+           # total effect#
+             total := c + (a*b)#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)
+##Mediation#
+model <- ' # direct effect#
+             Y ~~ c*X#
+           # mediator#
+             M ~~ a*X#
+             Y ~~ b*M#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)
+dat.cov
+##Mediation#
+model <- ' # direct effect#
+             Y ~~ c*X#
+           # mediator#
+             M ~~ a*X#
+             Y ~~ b*M#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)
+parameterEstimates(fit)
+parameterEstimates()
+?parameterEstimates()
+parameterEstimates(fit, standardized=T)
+model <- ' # direct effect#
+             Y ~ c*X#
+           # mediator#
+             M ~ a*X#
+             Y ~ b*M#
+           # indirect effect (a*b)#
+             ab := a*b#
+           # total effect#
+             total := c + (a*b)#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)#
+parameterEstimates(fit, standardized=T)
+##Reverse Mediation#
+model <- ' # direct effect#
+             M ~ c*X#
+           # mediator#
+             Y ~ a*X#
+             M ~ b*Y#
+           # indirect effect (a*b)#
+             ab := a*b#
+           # total effect#
+             total := c + (a*b)#
+         '#
+fit <- sem(model, data = Data)#
+summary(fit)
+##Reverse Mediation#
+model <- ' # direct effect#
+             M ~ c*X#
+           # mediator#
+             Y ~ a*X#
+             M ~ b*Y#
+           # indirect effect (a*b)#
+             ab := a*b#
+           # total effect#
+             total := c + (a*b)#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)
+model <- ' # direct effect#
+             Y ~ c*X#
+           # mediator#
+             M ~ a*X#
+             Y ~ b*M#
+           # indirect effect (a*b)#
+             ab := a*b#
+           # total effect#
+             total := c + (a*b)#
+         '#
+fit <- sem(model, sample.cov = dat.cov, sample.nobs=50940)#
+summary(fit)

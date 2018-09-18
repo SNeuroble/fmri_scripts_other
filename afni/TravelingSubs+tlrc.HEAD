@@ -1,0 +1,122 @@
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_2I7F539970I4PaNClW4czA~
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+      -95.44402      -131.0159      -52.83482
+
+type  = float-attribute
+name  = DELTA
+count = 3
+         3.4375         3.4375              5
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 64 64 30 0 0
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 4 0 0 0
+ 0 0 0
+
+type = string-attribute
+name = TYPESTRING
+count = 14
+'3DIM_GEN_FUNC~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 2 11 3 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = BRICK_LABS
+count = 26
+'Subj~Scanner~Day~Residual~
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 4
+ 1 1 1 1
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'TLRC~
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 2561
+'[stephanie@vpn172022154056.its.yale.internal: Thu May 21 10:19:16 2015] [stephanie@vpn172022154056.its.yale.internal: Thu May 21 10:07:36 2015] 3dLME -prefix TravelingSubs -jobs 1 -model 1 -ranEff Subj+Scanner+Day -ICC -dataTable Subj Scanner Day InputFile s1 1 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V1000_1_bis_seed.nii s1 1 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V1000_2_bis_seed.nii s2 1 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V2000_1_bis_seed.nii s2 1 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V2000_2_bis_seed.nii s3 1 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V3000_1_bis_seed.nii s3 1 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V3000_2_bis_seed.nii s4 1 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V4000_1_bis_seed.nii s4 1 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V4000_2_bis_seed.nii s5 1 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V5000_1_bis_seed.nii s5 1 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V5000_1_bis_seed.nii s6 1 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V6000_1_bis_seed.nii s6 1 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/01_V6000_2_bis_seed.nii s1 2 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V1000_2_bis_seed.nii s1 2 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V1000_2_bis_seed.nii s2 2 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V2000_1_bis_seed.nii s2 2 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V2000_2_bis_seed.nii s3 2 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V3000_2_bis_seed.nii s3 2 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V3000_2_bis_seed.nii s4 2 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V4000_1_bis_seed.nii s4 2 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V4000_2_bis_seed.nii s5 2 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V5000_2_bis_seed.nii s5 2 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V5000_2_bis_seed.nii s6 2 1 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V6000_1_bis_seed.nii s6 2 2 /Users/stephanie/Documents/data/traveling_subs/PCC_seed_vox_unsm/02_V6000_1_bis_seed.nii~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 1
+'~
+
+type = string-attribute
+name = LABEL_1
+count = 7
+'Viggo!~
+
+type = string-attribute
+name = LABEL_2
+count = 7
+'Viggo!~
+
+type = string-attribute
+name = DATASET_NAME
+count = 7
+'Viggo!~
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+         3.4375              0              0      -95.44402              0
+         3.4375              0      -131.0159              0              0
+              5      -52.83482
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+         3.4375              0              0      -95.44402              0
+         3.4375              0      -131.0159              0              0
+              5      -52.83482
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 8
+              0      0.9990598              0      0.8581562              0
+      0.4364416              0              1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 4
+   3.048982e-05   2.618965e-05   1.331955e-05   3.051851e-05
+
+type = string-attribute
+name = BRICK_KEYWORDS
+count = 4
+'~~~~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~

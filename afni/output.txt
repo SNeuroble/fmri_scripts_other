@@ -1,0 +1,160 @@
+
+R version 3.1.3 (2015-03-09) -- "Smooth Sidewalk"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #!/usr/bin/env afni_run_R
+> #Welcome to 3dICC_REML.R, an AFNI IntraClass Correlation Package!
+> #-----------------------------------------------------------
+> #Version 0.0.6,  Aug 1, 2013
+> #Author: Gang Chen (gangchen@mail.nih.gov)
+> #Website: http://afni.nimh.nih.gov/sscc/gangc/icc.html
+> #SSCC/NIMH, National Institutes of Health, Bethesda MD 20892
+> # If this program is useful for you, consider cite the following:
+> # Chen, G., Saad, Z.S., Britton, J.C., Pine, D.S., Cox, R.W. (2013). 
+> # Linear Mixed-Effects Modeling Approach to FMRI Group Analysis. 
+> # NeuroImage, 10.1016/j.neuroimage.2013.01.047.
+> #-----------------------------------------------------------
+> 
+> # Commannd line to run this script: 3dICC.R MyOutput & (R CMD BATCH 3dICC3.R MyOut &)
+> # (Output is a file in which the running progress including 
+> # error messages will be stored)
+> 
+> #varComp <- function(x) {
+> #   v<-as.numeric(VarCorr(x)[,1])
+> #   v<-as.numeric(na.omit(v))
+> #   v/sum(v)
+> #}
+> 
+> 
+> lineNum <- function(key, inFile) grep(key, readLines(inFile), ignore.case = TRUE)
+> 
+> getInfo <- function(key, inFile) {
++    LN<-lineNum(key, inFile)
++ 	if (length(LN)>0) unlist(strsplit(unlist(scan(file=inFile, what= list(""), 
++       skip=LN-1, strip.white=TRUE, nline=1)), "\\:"))[2] else NA		
++ }			
+> 
+> band <- function(x, lo, hi) {ifelse((x<=hi)&(x>=lo), x, ifelse(x>hi, hi, lo))}
+> 
+> system("rm -f .RData")
+> 
+> first.in.path <- function(file) {
++    ff <- paste(strsplit(Sys.getenv('PATH'),':')[[1]],'/', file, sep='')
++    ff<-ff[lapply(ff,file.exists)==TRUE];
++    #cat('Using ', ff[1],'\n');
++    return(gsub('//','/',ff[1], fixed=TRUE)) 
++ }
+> source(first.in.path('AFNIio.R'))
+> #source("~/abin/AFNIio.R")
+> 
+> comArgs <- commandArgs()
+> if(length(comArgs)<6) parFile <- "model.txt" else
++ parFile <- comArgs[6]
+> paste(comArgs)
+[1] "/Library/Frameworks/R.framework/Resources/bin/exec/R"
+[2] "--no-restore"                                        
+[3] "--save"                                              
+[4] "--no-readline"                                       
+[5] "--args"                                              
+[6] "travelersModel.txt"                                  
+> paste(parFile)
+[1] "travelersModel.txt"
+> 
+> #  Output filename: optional
+> Out <- getInfo("Output", parFile)
+Read 1 record
+> if(is.na(Out)) {
++    print("No output file name provided: a suffix of TEST will be used...")
++ 	Out <- "TEST"
++ }	
+> OutFile <- paste(Out, "+tlrc", sep="") 
+> 
+> pkgLoad('lme4')
+Loading required package: lme4
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    band
+
+Loading required package: Rcpp
+Package lme4 loaded successfully!
+
+> 
+> # MASK: optional
+> mask <- getInfo("Mask", parFile)
+Read 1 record
+> 
+> fixEff <- getInfo("FixEff", parFile)
+Read 1 record
+> if(is.na(fixEff)) fixEff <- 1
+> ranEff <- unlist(strsplit(getInfo("RanEff", parFile), split="[+]"))
+Read 1 record
+> 
+> # number of Clusters: optional
+> nNodes <- as.integer(getInfo("Clusters", parFile))
+Read 1 record
+> if(is.na(nNodes)) nNodes<-1
+> 
+> # header position (hp) defined by column name InputFile
+> if(!is.na(LN<-lineNum("InputFile", parFile))) { 
++    Model <- read.table(parFile, skip=LN-1, header=TRUE)
++ # More decent way to do this?
++    Model$Subj <-  as.factor(Model$Subj)
++    Model$InputFile <-  as.character(Model$InputFile)
++ } else {print("ERROR: No column named inputFile found!"); break}
+> 
+> # Number of input files
+> NoFile <- dim(Model[1])[1]
+> # number of random factors
+> # nFact <- dim(Model)[2]-1
+> nFact <- length(ranEff)
+> # factor names
+> #fNames <- colnames(Model)[which(colnames(Model) != "InputFile")]
+> 
+> #ModelForm <- paste("Beta~(1|",fNames[1],")")
+> ModelForm <- paste("Beta~", fixEff)
+> #if (nFact == 2 ) ModelForm <- paste(ModelForm,"+","(1|",fNames[2],")")
+> #if (nFact == 3 ) ModelForm <- paste(ModelForm,"+","(1|",fNames[2],")","+(1|",fNames[3],")")
+> for(ii in 1:nFact) ModelForm <- paste(ModelForm,"+(1|",ranEff[ii],")")
+> ModelForm <- as.formula(ModelForm)
+> 
+> # Read in the 1st input file so that we have the dimension information
+> Data <- read.AFNI(Model[1, "InputFile"])
+** ERROR: Dset /mridata2/mri_group/smn33_data/traveling_subs/results_pcc/01_V1000_1_bis_seed.nii.gz could not be loaded
+> dimx <- Data$dim[1]
+> dimy <- Data$dim[2]
+> dimz <- Data$dim[3]
+> 
+> head <- Data
+> 
+> if(!is.na(mask)) Mask <- read.AFNI(mask)$brk
+** ERROR: Dset /mridata1/mri_group/rtfmri_data/dustin/trav/groupwise_rigid/5thpass/5thpass_template_GM_RL_resl.nii.gz could not be loaded
+> 
+> if (length(grep('tlrc', Model[1, "InputFile"]))==1) outView <- "tlrc"
+> if (length(grep('orig', Model[1, "InputFile"]))==1) outView <- "orig"
+> 
+> 
+> # initialization
+> IData <- array(data=NA, dim=c(dimx, dimy, dimz, NoFile))
+> 
+> IData[,,,1] <- Data$brk
+Error in IData[, , , 1] <- Data$brk : incorrect number of subscripts
+Execution halted
