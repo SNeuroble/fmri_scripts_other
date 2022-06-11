@@ -33,7 +33,7 @@ calc_icc_var <- function(icc,n,k) {
 # Define files
 data_path <- "/Volumes/GoogleDrive/My Drive/Steph - Lab/TRT Review/literature/culling papers"
 figs_path <- "/Volumes/GoogleDrive/My Drive/Steph - Lab/TRT Review/figures"
-data_filename <- paste(data_path,"/2 for meta and review.xlsx",sep="")
+data_filename <- paste(data_path,"/2 for meta and review clean.xlsx",sep="")
 forest_plot_filename <- paste(figs_path,"/forest.pdf",sep="")
 funnel_plot_filename <- paste(figs_path,"/funnel.pdf",sep="")
 mix_plot_filename <- paste(figs_path,"/density.pdf",sep="")
